@@ -12,7 +12,7 @@ from pathlib import Path
 from scipy.signal import find_peaks
 import numpy as np
 
-pl_folder_path = Path(r'E:\1_TTMFACz_TTMFAtbCz_Abs_Emssion_Tol')
+pl_folder_path = Path(r'path')
 pl_files = list(pl_folder_path.glob('*.dx')) #获取该文件夹下所有的dx格式的文件，并以它们的路径为值创建list 
 for file in pl_files:
     with file.open() as f:
