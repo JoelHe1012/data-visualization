@@ -46,7 +46,6 @@ ax2 = ax1.twinx()
 # 处理吸收光谱，画图
 # 依次导入每个文件为df格式，并作图
 df_abs_files = list(abs_folder_path.glob('df_*.txt')) # 获取文件加下所有以df_开头的文件，即处理好的文件
-colors = plt.cm.get_cmap('tab10', len(df_abs_files) + 1).colors[1:] #让颜色循环从默认的色板第二个开始
 for i,file in enumerate(df_abs_files):
     abs_data = pd.read_csv(file, sep = ',', encoding = 'gbk') #读取每个文件，然后创建一个临时DF
     x = abs_data.iloc[:,0]
