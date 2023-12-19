@@ -10,7 +10,7 @@ import pandas as pd
 from pathlib import Path
 
 # 定义绘制吸收光谱的函数
-def abs_plot(path,axes,xlim,ylim):
+def abs_plot(path,xlim,ylim,axes=plt.figure(figsize=(8,6)).add_subplot(1,1,1)):
     '''
     1.用来绘制紫外可见吸收光谱，可以把一个文件目录下所有txt格式的文件绘制成紫外可见吸收光谱
     2.所有的折线都在同一坐标轴下面
@@ -58,5 +58,16 @@ def abs_plot(path,axes,xlim,ylim):
     for file_to_delete in df_files:
         file_to_delete.unlink()
         print(f"{file_to_delete} 已被删除。")
+
+def pl_plot(path, xlim=(550,600),ylim=(0,1),axes=plt.figure(figsize=(8,6)).add_subplot(1,1,1)):
+    '''
+    绘制归一化的发射光谱
+    '''
+    folder_path = Path(path)
+    files = list(folder_path.glob('*.dx'))
+    for file in files:
+        with file.open() as f:
+            lines =  f.readlines()
+        lines = lines[]
 
 
